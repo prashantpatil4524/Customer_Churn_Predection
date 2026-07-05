@@ -27,5 +27,4 @@ EXPOSE 5000
 ENV FLASK_APP=app.py
 ENV FLASK_ENV=production
 
-# Run the application
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "4", "--timeout", "120", "app:app"]
+CMD gunicorn --bind 0.0.0.0:${PORT:-5000} --workers 4 --timeout 120 app:app
