@@ -3,6 +3,7 @@ services:
   - type: web
     name: customer-churn-backend
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
     rootDir: backend
@@ -18,6 +19,7 @@ services:
   - type: web
     name: customer-churn-frontend
     runtime: static
+    plan: free
     buildCommand: npm install && npm run build
     staticPublishPath: build
     rootDir: frontend
