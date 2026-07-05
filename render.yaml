@@ -1,0 +1,30 @@
+services:
+  # Backend Flask API
+  - type: web
+    name: customer-churn-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    rootDir: backend
+    envVars:
+      - key: FLASK_APP
+        value: app.py
+      - key: FLASK_ENV
+        value: production
+      - key: PORT
+        value: 10000
+
+  # Frontend React App (Static Site)
+  - type: web
+    name: customer-churn-frontend
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+    rootDir: frontend
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://customer-churn-backend.onrender.com # Update this with your actual backend URL after deployment
