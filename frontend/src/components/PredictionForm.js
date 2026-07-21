@@ -56,7 +56,15 @@ const PredictionForm = ({ onPredictionComplete }) => {
 
   return (
     <div className="card">
-      <h3 style={{ marginBottom: '1.5rem', color: '#333' }}>Customer Information</h3>
+      <h3 style={{ 
+        fontFamily: 'Cormorant Garamond, Georgia, serif', 
+        fontSize: '1.75rem', 
+        marginBottom: '1.5rem', 
+        color: '#211A15',
+        fontWeight: '600'
+      }}>
+        Customer Profile Input
+      </h3>
       
       {error && (
         <div className="alert alert-error">
@@ -66,8 +74,9 @@ const PredictionForm = ({ onPredictionComplete }) => {
       )}
 
       <form onSubmit={handleSubmit}>
+        {/* Section 1: Demographics */}
+        <h4 className="form-section-title">Demographic Profile</h4>
         <div className="form-grid">
-          {/* Demographics */}
           <div className="form-group">
             <label>Gender</label>
             <select name="gender" value={formData.gender} onChange={handleChange}>
@@ -85,7 +94,7 @@ const PredictionForm = ({ onPredictionComplete }) => {
           </div>
 
           <div className="form-group">
-            <label>Partner</label>
+            <label>Has Partner</label>
             <select name="Partner" value={formData.Partner} onChange={handleChange}>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
@@ -93,14 +102,17 @@ const PredictionForm = ({ onPredictionComplete }) => {
           </div>
 
           <div className="form-group">
-            <label>Dependents</label>
+            <label>Has Dependents</label>
             <select name="Dependents" value={formData.Dependents} onChange={handleChange}>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
           </div>
+        </div>
 
-          {/* Account Info */}
+        {/* Section 2: Account details */}
+        <h4 className="form-section-title">Account & Financials</h4>
+        <div className="form-grid">
           <div className="form-group">
             <label>Tenure (months)</label>
             <input
@@ -139,8 +151,11 @@ const PredictionForm = ({ onPredictionComplete }) => {
               required
             />
           </div>
+        </div>
 
-          {/* Services */}
+        {/* Section 3: Subscribed Services */}
+        <h4 className="form-section-title">Subscribed Services</h4>
+        <div className="form-grid">
           <div className="form-group">
             <label>Phone Service</label>
             <select name="PhoneService" value={formData.PhoneService} onChange={handleChange}>
@@ -220,10 +235,13 @@ const PredictionForm = ({ onPredictionComplete }) => {
               <option value="No internet service">No internet service</option>
             </select>
           </div>
+        </div>
 
-          {/* Contract & Payment */}
+        {/* Section 4: Billing Details */}
+        <h4 className="form-section-title">Contract & Billing</h4>
+        <div className="form-grid">
           <div className="form-group">
-            <label>Contract</label>
+            <label>Contract Term</label>
             <select name="Contract" value={formData.Contract} onChange={handleChange}>
               <option value="Month-to-month">Month-to-month</option>
               <option value="One year">One year</option>
@@ -239,7 +257,7 @@ const PredictionForm = ({ onPredictionComplete }) => {
             </select>
           </div>
 
-          <div className="form-group">
+          <div className="form-group" style={{ gridColumn: 'span 2' }}>
             <label>Payment Method</label>
             <select name="PaymentMethod" value={formData.PaymentMethod} onChange={handleChange}>
               <option value="Electronic check">Electronic check</option>
@@ -254,17 +272,17 @@ const PredictionForm = ({ onPredictionComplete }) => {
           type="submit"
           className="btn btn-primary btn-block"
           disabled={loading}
-          style={{ marginTop: '2rem' }}
+          style={{ marginTop: '2.5rem' }}
         >
           {loading ? (
             <>
               <span className="loading-spinner"></span>
-              <span>Analyzing...</span>
+              <span>Running Analysis...</span>
             </>
           ) : (
             <>
               <FaPaperPlane />
-              <span>Predict Churn</span>
+              <span>Analyze Churn Risk</span>
             </>
           )}
         </button>
