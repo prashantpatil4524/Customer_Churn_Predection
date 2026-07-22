@@ -78,9 +78,9 @@ function App() {
         <div className="header-content">
           <div className="logo-section">
             <FaBrain className="logo-icon" />
-            <h1>Silk Atlas Churn</h1>
+            <h1>AI-Powered Customer Retention Analytics</h1>
           </div>
-          <p className="subtitle">AI-Powered Customer Retention Analytics</p>
+          <p className="subtitle">Machine Learning Model & Retention Diagnostics</p>
         </div>
       </header>
 
