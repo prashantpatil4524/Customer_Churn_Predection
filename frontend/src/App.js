@@ -4,6 +4,7 @@ import PredictionForm from './components/PredictionForm';
 import ResultsDisplay from './components/ResultsDisplay';
 import ModelInfo from './components/ModelInfo';
 import BatchPrediction from './components/BatchPrediction';
+import SilkAtlasBackground from './components/SilkAtlasBackground';
 import { FaChartLine, FaRobot, FaBrain, FaDatabase } from 'react-icons/fa';
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
 
   return (
     <div className="App">
+      <SilkAtlasBackground />
       {/* Header with Japanese Eaves Background */}
       <header className="app-header">
         <div className="header-content">
